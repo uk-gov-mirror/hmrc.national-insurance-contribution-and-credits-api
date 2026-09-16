@@ -706,15 +706,6 @@ paths:
                       totalCalls: 3
                       successful: 2
                       failed: 1
-                    downStreams:
-                      - apiName: "NiContributionsAndCredits"
-                        status: "SUCCESS"
-                      - apiName: "Liabilities"
-                        status: "FAILURE"
-                        error:
-                          code: "TIMEOUT"
-                          message: "liability calculation service timeout"
-                          downstreamStatus: 408
                 complete_failure:
                   summary: Complete failure - every downstream called for a given benefit responds with a failure
                   value:
@@ -725,20 +716,6 @@ paths:
                       totalCalls: 3
                       successful: 0
                       failed: 3
-                    downStreams:
-                      - apiName: "NiContributionsAndCredits"
-                        status: "FAILURE"
-                        error:
-                          code: "FORBIDDEN"
-                          message: "access denied to maternity allowance service"
-                          downstreamStatus: 403
-                      - apiName: "Liabilities"
-                        status: "FAILURE"
-                        error:
-                          code: "BAD_REQUEST"
-                          message: "invalid liability calculation parameters"
-                          downstreamStatus: 400
-
     get:
       tags:
         - Benefit-eligibility-info
@@ -980,15 +957,6 @@ paths:
                       totalCalls: 3
                       successful: 2
                       failed: 1
-                    downStreams:
-                      - apiName: "NiContributionsAndCredits"
-                        status: "SUCCESS"
-                      - apiName: "Liabilities"
-                        status: "FAILURE"
-                        error:
-                          code: "TIMEOUT"
-                          message: "liability calculation service timeout"
-                          downstreamStatus: 408
                 complete_failure:
                   summary: Complete failure - every downstream called for a given benefit responds with a failure
                   value:
@@ -999,21 +967,6 @@ paths:
                       totalCalls: 3
                       successful: 0
                       failed: 3
-                    downStreams:
-                      - apiName: "NiContributionsAndCredits"
-                        status: "FAILURE"
-                        error:
-                          code: "FORBIDDEN"
-                          message: "access denied to maternity allowance service"
-                          downstreamStatus: 403
-                      - apiName: "Liabilities"
-                        status: "FAILURE"
-                        error:
-                          code: "BAD_REQUEST"
-                          message: "invalid liability calculation parameters"
-                          downstreamStatus: 400
-
-
 components:
   securitySchemes:
     applicationRestricted:
